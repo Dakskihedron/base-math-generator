@@ -11,10 +11,11 @@ function baseGenerate() {
         2: '01',
         16: '0123456789ABCDEF'
     }
-    const opList = ['+', '−']
+    const opList = ['+', '−'];
     for (var i = 0; i < limit; i++) {
         outputOne += baseList[base].charAt(Math.floor(Math.random() * baseList[base].length))
     }
+
     for (var i = 0; i < (Math.random() * ((outputOne.length + 1) - 1)); i++) {
         outputTwo += baseList[base].charAt(Math.floor(Math.random() * baseList[base].length))
     }
@@ -31,4 +32,8 @@ function baseGenerate() {
         textboxOp.innerHTML = operator
         return
     }
+}
+
+function toggleDark() {
+    document.body.classList.toggle('dark');
 }
