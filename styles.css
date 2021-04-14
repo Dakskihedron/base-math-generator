@@ -1,4 +1,4 @@
-#textbox-one {
+#top-value {
     top: 18.7037%;
     left: 23.4375%;
     position: fixed;
@@ -12,7 +12,7 @@
     text-align: right; 
 }
 
-#textbox-two {
+#bottom-value {
     top: 50%;
     left: 23.4375%;
     position: fixed;
@@ -26,7 +26,7 @@
     text-align: right;
 }
 
-#textbox-op {
+#operator {
     top: 50%;
     left: 5.8333%;
     position: fixed;
