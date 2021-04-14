@@ -1,36 +1,50 @@
-function baseGenerate() {
-    const textboxOne = document.getElementById("textbox-one")
-    const textboxTwo = document.getElementById("textbox-two")
-    const textboxOp = document.getElementById("textbox-op")
-    const limit = Math.random() * (9 - 1)
-    let base = document.getElementById("base-select").value
-    let outputOne = ''
-    let outputTwo = ''
-    const baseList = {
-        10: '0123456789',
-        2: '01',
-        16: '0123456789ABCDEF'
-    }
-    const opList = ['+', '−'];
-    for (var i = 0; i < limit; i++) {
-        outputOne += baseList[base].charAt(Math.floor(Math.random() * baseList[base].length))
-    }
-
-    for (var i = 0; i < (Math.random() * ((outputOne.length + 1) - 1)); i++) {
-        outputTwo += baseList[base].charAt(Math.floor(Math.random() * baseList[base].length))
-    }
-    let operator = opList[Math.floor(Math.random() * opList.length)]
-    if (base == 10 && outputTwo > outputOne && operator == '-') {
-        console.log("Rerolling...")
-        return baseGenerate()
-    } else if (base == 10 && (outputOne.charAt(0) == '0' || outputTwo.charAt(0) == '0')) {
-        console.log("Rerolling...")
-        return baseGenerate()
+function baseOutput(topOutput, bottomOutput, operation) {
+    const topValue = document.getElementById('top-value')
+    const bottomValue = document.getElementById('bottom-value')
+    const operator = document.getElementById('operator')
+    topValue.innerHTML = topOutput
+    bottomValue.innerHTML = bottomOutput
+    if (operation == 'sub') {
+        operator.innerHTML = '−'
     } else {
-        textboxOne.innerHTML = outputOne
-        textboxTwo.innerHTML = outputTwo
-        textboxOp.innerHTML = operator
-        return
+        operator.innerHTML = '+'
+    }
+    return
+}
+
+function baseGenerate() {
+    let seed = new Date().getTime()
+    var m = new MersenneTwister(seed)
+    let base = document.getElementById("base-select").value
+    const operators = ['add', 'sub']
+    let operation = operators[Math.floor(m.random() * operators.length)]
+    let topOutput = ''
+    let bottomOutput = ''
+    const limit = {
+        10: 99999999,
+        2: 255,
+        16: 4294967295
+    }
+    /* Randomisation */
+    let sum = Math.floor((m.random() * limit[base]) + 1)
+    let operandOne = Math.floor((m.random() * sum) + 1)
+    let operandTwo = sum - operandOne
+    /* Assign values to variables */
+    if (operation == 'sub') {
+        let outputs = [operandOne, operandTwo]
+        topOutput = sum
+        bottomOutput = outputs[Math.floor(m.random() * outputs.length)]
+    } else {
+        topOutput = operandOne
+        bottomOutput = operandTwo
+    }
+    /* Call output function */
+    if (base == 10) {
+        return baseOutput(topOutput, bottomOutput, operation)
+    } else {
+        topOutput = topOutput.toString(base).toUpperCase()
+        bottomOutput = bottomOutput.toString(base).toUpperCase()
+        return baseOutput(topOutput, bottomOutput, operation)
     }
 }
 
