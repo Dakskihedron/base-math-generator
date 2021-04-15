@@ -1,40 +1,24 @@
-#top-value {
-    top: 18.7037%;
-    left: 23.4375%;
-    position: fixed;
-    width: 67.3958%;
-    height: 31.2962%;  
+#container {
+    margin-top: 100px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    float: left;
+    width: 11.11%;
+    padding: 1px;
+    height: 200px;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 250px;
-    line-height: 337px;
-    text-align: right; 
+    font-size: 260px;
 }
 
-#bottom-value {
-    top: 50%;
-    left: 23.4375%;
-    position: fixed;
-    width: 67.3958%;
-    height: 31.2962%;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 250px;
-    line-height: 337px;
-    text-align: right;
-}
-
-#operator {
-    top: 50%;
-    left: 5.8333%;
-    position: fixed;
-    width: 17.60416%;
-    height: 31.2962%;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 250px;
-    line-height: 337px;
-    text-align: center;
+.value-container::after {
+    content: "";
+    clear: both;
+    display: table;
 }
