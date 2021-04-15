@@ -1,9 +1,28 @@
+function reverse(s) {
+    return s.toString().split('').reverse().join('')
+}
+
 function baseOutput(topOutput, bottomOutput, operation) {
-    const topValue = document.getElementById('top-value')
-    const bottomValue = document.getElementById('bottom-value')
+    let pos = 0
+    /* Top value */
+    topOutput = reverse(topOutput)
+    for (i = 0; i < 8; i++) {
+        let char = topOutput.charAt(pos)
+        document.getElementById(`top-${pos}`).innerHTML = ''
+        document.getElementById(`top-${pos}`).innerHTML = char
+        pos++
+    }
+    /* Bottom value */
+    pos = 0
+    bottomOutput = reverse(bottomOutput)
+    for (i = 0; i < 8; i++) {
+        let char = bottomOutput.charAt(pos)
+        document.getElementById(`bottom-${pos}`).innerHTML = ''
+        document.getElementById(`bottom-${pos}`).innerHTML = char
+        pos++
+    }
+    /* Arithmetic operation */
     const operator = document.getElementById('operator')
-    topValue.innerHTML = topOutput
-    bottomValue.innerHTML = bottomOutput
     if (operation == 'sub') {
         operator.innerHTML = '−'
     } else {
