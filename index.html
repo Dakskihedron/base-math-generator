@@ -7,41 +7,20 @@
         <link rel="stylesheet" type="text/css" href="dark.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-        <script src="src/mersenne-twister.js" type="text/javascript"></script>
         <script src="src/main.js" type="text/javascript"></script>
     </head>
-    <body style='text-align: center; margin: 0px' onload="checkDark()">
-        <button onclick="toggleDark()">Toggle Dark Mode</button>
-        <select id="base-select">
-            <option value="10">Decimal</option>
-            <option value="2">Binary</option>
-            <option value="16">Hexadecimal</option>
-        </select>
-        <button onclick="javascript: baseGenerate()">Generate</button>
-        <div id="container">
-            <div class="value-container">
-                <div class="box"></div>
-                <div class="box" id="top-7"></div>
-                <div class="box" id="top-6"></div>
-                <div class="box" id="top-5"></div>
-                <div class="box" id="top-4"></div>
-                <div class="box" id="top-3"></div>
-                <div class="box" id="top-2"></div>
-                <div class="box" id="top-1"></div>
-                <div class="box" id="top-0"></div>
-            </div>
-            <div style="height: 100px"></div>
-            <div class="value-container">
-                <div class="box" id="operator"></div>
-                <div class="box" id="bottom-7"></div>
-                <div class="box" id="bottom-6"></div>
-                <div class="box" id="bottom-5"></div>
-                <div class="box" id="bottom-4"></div>
-                <div class="box" id="bottom-3"></div>
-                <div class="box" id="bottom-2"></div>
-                <div class="box" id="bottom-1"></div>
-                <div class="box" id="bottom-0"></div>
-            </div>
+    <body style="text-align: center; margin: 0px" onload="checkDark()">
+        <div style="margin-top: 20px">
+            <button onclick="toggleDark()">Toggle Dark Mode</button>
+            <select id="base-select">
+                <option value="10">Decimal</option>
+                <option value="2">Binary</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+            <button onclick="javascript: handleRandNum()">Generate</button>
+        </div>
+        <div>
+            <pre id="output"></pre>
         </div>
     </body>
 </html>
