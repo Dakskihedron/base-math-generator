@@ -1,70 +1,39 @@
+function fetchRandNum(base) {
+    return new Promise(resolve => {
+        url = [
+            'https://qrng.anu.edu.au/API/jsonI.php?length=2&type=uint8&size=6',
+            'https://qrng.anu.edu.au/API/jsonI.php?length=2&type=uint16&size=6'
+        ]
+        if (base == 2) {
+            fetch(url[0])
+            .then(response => response.json())
+            .then(data => data['data'])
+            .then(data => resolve(data))
+        } else {
+            fetch(url[Math.floor(Math.random() * url.length)])
+            .then(response => response.json())
+            .then(data => data['data'])
+            .then(data => resolve(data))
+        }
+    })
+}
+
 function reverse(s) {
     return s.toString().split('').reverse().join('')
 }
 
-function baseOutput(topOutput, bottomOutput, operation) {
-    let pos = 0
-    /* Top value */
-    topOutput = reverse(topOutput)
-    for (i = 0; i < 8; i++) {
-        let char = topOutput.charAt(pos)
-        document.getElementById(`top-${pos}`).innerHTML = ''
-        document.getElementById(`top-${pos}`).innerHTML = char
-        pos++
-    }
-    /* Bottom value */
-    pos = 0
-    bottomOutput = reverse(bottomOutput)
-    for (i = 0; i < 8; i++) {
-        let char = bottomOutput.charAt(pos)
-        document.getElementById(`bottom-${pos}`).innerHTML = ''
-        document.getElementById(`bottom-${pos}`).innerHTML = char
-        pos++
-    }
-    /* Arithmetic operation */
-    const operator = document.getElementById('operator')
-    if (operation == 'sub') {
-        operator.innerHTML = '−'
-    } else {
-        operator.innerHTML = '+'
-    }
-    return
-}
-
-function baseGenerate() {
-    let seed = new Date().getTime()
-    var m = new MersenneTwister(seed)
+async function handleRandNum() {
     let base = document.getElementById("base-select").value
-    const operators = ['add', 'sub']
-    let operation = operators[Math.floor(m.random() * operators.length)]
-    let topOutput = ''
-    let bottomOutput = ''
-    const limit = {
-        10: 99999999,
-        2: 255,
-        16: 4294967295
+    let [numOne, numTwo] = await fetchRandNum(base)
+    const operators = ['&plus;', '&minus;']
+    let operation = operators[Math.floor(Math.random() * operators.length)]
+    let numLarge = Math.max(numOne, numTwo)
+    let numSmall = Math.min(numOne, numTwo)
+    if (base != 10) {
+        numLarge = numLarge.toString(base).toUpperCase()
+        numSmall = numSmall.toString(base).toUpperCase()
     }
-    /* Randomisation */
-    let sum = Math.floor((m.random() * limit[base]) + 1)
-    let operandOne = Math.floor((m.random() * sum) + 1)
-    let operandTwo = sum - operandOne
-    /* Assign values to variables */
-    if (operation == 'sub') {
-        let outputs = [operandOne, operandTwo]
-        topOutput = sum
-        bottomOutput = outputs[Math.floor(m.random() * outputs.length)]
-    } else {
-        topOutput = operandOne
-        bottomOutput = operandTwo
-    }
-    /* Call output function */
-    if (base == 10) {
-        return baseOutput(topOutput, bottomOutput, operation)
-    } else {
-        topOutput = topOutput.toString(base).toUpperCase()
-        bottomOutput = bottomOutput.toString(base).toUpperCase()
-        return baseOutput(topOutput, bottomOutput, operation)
-    }
+    return document.getElementById('output').innerHTML = `${numLarge}\n${operation}${numSmall}`
 }
 
 function toggleDark() {
