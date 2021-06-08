@@ -3,12 +3,12 @@
     color: whitesmoke;
 }
 
-.dark #textbook-one {
+.dark button {
+    background-color: #383C42;
     color: whitesmoke !important;
 }
-.dark #textbook-two {
-    color: whitesmoke !important;
-}
-.dark #textbook-op {
+
+.dark #base-select {
+    background-color: #383C42;
     color: whitesmoke !important;
 }
