@@ -1,11 +1,36 @@
-#container {
-    margin-top: 100px;
+body {
+    text-align: center; margin: 0px
+}
+
+#header-container {
+    margin-top: 20px;
+}
+
+button {
+    background: #EBEBEB;
+    border: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#base-select {
+    border: none;
+    background: #EBEBEB;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#output-wrapper {
+    text-align: center;
 }
 
 #output {
+    margin-top: 10vw;
     white-space: pre;
-    display: block;
-    font-size: 300px;
+    display: inline-block;
+    font-size: 13vw;
     text-align: right;
-    margin: 50px 50px auto auto;
 }
