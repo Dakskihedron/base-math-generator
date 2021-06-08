@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Base Generator</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="stylesheet" type="text/css" href="dark.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/dark.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <script src="src/main.js" type="text/javascript"></script>
     </head>
-    <body style="text-align: center; margin: 0px" onload="checkDark()">
-        <div style="margin-top: 20px">
-            <button onclick="toggleDark()">Toggle Dark Mode</button>
+    <body onload="checkDark()">
+        <div id="header-container">
+            <button id="toggle-dark" onclick="toggleDark()">Toggle Dark Mode</button>
             <select id="base-select">
                 <option value="10">Decimal</option>
                 <option value="2">Binary</option>
@@ -19,7 +20,7 @@
             </select>
             <button onclick="javascript: handleRandNum()">Generate</button>
         </div>
-        <div>
+        <div id="output-wrapper">
             <pre id="output"></pre>
         </div>
     </body>
