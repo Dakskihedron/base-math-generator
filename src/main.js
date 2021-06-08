@@ -18,10 +18,6 @@ function fetchRandNum(base) {
     })
 }
 
-function reverse(s) {
-    return s.toString().split('').reverse().join('')
-}
-
 async function handleRandNum() {
     let base = document.getElementById("base-select").value
     let [numOne, numTwo] = await fetchRandNum(base)
