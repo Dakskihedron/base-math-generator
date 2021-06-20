@@ -4,24 +4,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Base Generator</title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" type="text/css" href="css/dark.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="styles/styles.css" rel="stylesheet" type="text/css">
+        <link href="styles/grid.css" rel="stylesheet" type="text/css">
+        <link href="styles/dark.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.gstatic.com" rel="preconnect">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <script src="src/main.js" type="text/javascript"></script>
+        <script src="src/dark.js" type="text/javascript"></script>
     </head>
     <body onload="checkDark()">
-        <div id="header-container">
-            <button id="toggle-dark" onclick="toggleDark()">Toggle Dark Mode</button>
-            <select id="base-select">
-                <option value="10">Decimal</option>
-                <option value="2">Binary</option>
-                <option value="16">Hexadecimal</option>
-            </select>
-            <button onclick="javascript: handleRandNum()">Generate</button>
-        </div>
-        <div id="output-wrapper">
-            <pre id="output"></pre>
+        <div class="grid">
+            <div class="grid-item">
+                <div class="header-container">
+                    <button id="toggle-dark" onclick="toggleDark()">Toggle Dark Mode</button>
+                    <select id="select-base">
+                        <option value="10">Decimal</option>
+                        <option value="2">Binary</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                    <button onclick="randNum()">Question</button>
+                    <button onclick="showAnswer()">Answer</button>
+                </div>
+            </div>
+            <div class="grid-item">
+                <pre id="output-question"></pre>
+            </div>
+            <div id="answer" class="grid-item">
+                <pre id="output-answer"></pre>
+            </div>
+            <footer></footer>
         </div>
     </body>
 </html>
