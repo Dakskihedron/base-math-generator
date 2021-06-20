@@ -15,21 +15,19 @@
     <body onload="checkDark()">
         <div class="grid">
             <div class="grid-item">
-                <div class="header-container">
-                    <button id="toggle-dark" onclick="toggleDark()">Toggle Dark Mode</button>
-                    <select id="select-base">
-                        <option value="10">Decimal</option>
-                        <option value="2">Binary</option>
-                        <option value="16">Hexadecimal</option>
-                    </select>
-                    <button onclick="randNum()">Question</button>
-                    <button onclick="showAnswer()">Answer</button>
-                </div>
+                <button onclick="toggleDark()">Toggle Dark Mode</button>
+                <select id="select-base">
+                    <option value="10">Decimal</option>
+                    <option value="2">Binary</option>
+                    <option value="16">Hexadecimal</option>
+                </select>
+                <button onclick="randNum()">Question</button>
+                <button onclick="showAnswer()">Answer</button>
             </div>
             <div class="grid-item">
                 <pre id="output-question"></pre>
             </div>
-            <div id="answer" class="grid-item">
+            <div class="grid-item">
                 <pre id="output-answer"></pre>
             </div>
             <footer></footer>
