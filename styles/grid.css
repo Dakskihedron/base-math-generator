@@ -1,0 +1,36 @@
+.grid {
+    display: grid;
+    height: 100vh;
+    grid-template-areas:
+                "a"
+                "b"
+                "c"
+                "d";
+    grid-template-rows: 10% auto 30% 5%;
+}
+
+.grid-item {
+    display: flex;
+}
+
+.grid-item:nth-child(1) {
+    grid-area: a;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item:nth-child(2) {
+    grid-area: b;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item:nth-child(3) {
+    grid-area: c;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: d;
+}
