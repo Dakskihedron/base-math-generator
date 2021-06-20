@@ -1,14 +1,18 @@
 .dark {
-    background-color: #2F3237;
+    background: #2F3237;
     color: whitesmoke;
 }
 
 .dark button {
-    background-color: #383C42;
+    background: #383C42;
     color: whitesmoke !important;
 }
 
-.dark #base-select {
-    background-color: #383C42;
+.dark select {
+    background: #383C42;
     color: whitesmoke !important;
+}
+
+.dark button:hover, .dark select:hover {
+    background: #454a52;
 }
