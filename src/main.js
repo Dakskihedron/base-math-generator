@@ -36,7 +36,7 @@ async function randNum() {
         numSmall = numSmall.toString(base).toUpperCase()
     }
     document.getElementById('output-answer').innerHTML = ''
-    return document.getElementById('output-question').innerHTML = `${numLarge}\n${operation}${numSmall}`
+    return document.getElementById('output-question').innerHTML = `${numLarge}\n${operation} ${numSmall}`
 }
 
 function showAnswer() {
