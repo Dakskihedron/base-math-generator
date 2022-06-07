@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Base Generator</title>
+        <title>Base Math Generator</title>
         <link href="styles/styles.css" rel="stylesheet" type="text/css">
         <link href="styles/grid.css" rel="stylesheet" type="text/css">
         <link href="styles/dark.css" rel="stylesheet" type="text/css">
@@ -15,11 +15,11 @@
     <body onload="checkDark()">
         <div class="grid">
             <div class="grid-item">
-                <button onclick="toggleDark()">Toggle Dark Mode</button>
+                <button onclick="toggleDark()">Toggle Theme</button>
                 <select id="select-base">
-                    <option value="10">Decimal</option>
-                    <option value="2">Binary</option>
-                    <option value="16">Hexadecimal</option>
+                    <option value="10">Dec</option>
+                    <option value="2">Bin</option>
+                    <option value="16">Hex</option>
                 </select>
                 <button onclick="randNum()">Question</button>
                 <button onclick="showAnswer()">Answer</button>
